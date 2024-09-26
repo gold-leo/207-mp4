@@ -150,7 +150,15 @@ public class AssociativeArray<K, V> {
    * return false for the null key.
    */
   public boolean hasKey(K key) {
-    return false; // STUB
+    if (this.size() == 0) {
+      return false;
+    }
+    for (int i = 0; i < this.size(); i++) {
+      if (!pairs[i].key.equals(key)) {
+        return false;
+      }
+    } // iterate through pairs
+    return true;
   } // hasKey(K)
 
   /**
@@ -159,7 +167,14 @@ public class AssociativeArray<K, V> {
    * in the associative array, does nothing.
    */
   public void remove(K key) {
-    // STUB
+    try {
+      int i = this.find(key);
+      this.pairs[i] = this.pairs[this.size() - 1];
+      this.pairs[this.size() - 1] = null;
+      this.size--;
+    } catch (Exception e) {
+      return;
+    }
   } // remove(K)
 
   /**
