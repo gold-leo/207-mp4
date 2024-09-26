@@ -114,6 +114,9 @@ public class AAExperiments {
     set(pen, strings2strings, null, "nothing");
     hasKey(pen, strings2strings, null);
     get(pen, strings2strings, null);
+
+    // What happens when we print the AA?
+    pen.println(strings2strings.toString());
     
     // And we're done.
     pen.close();
