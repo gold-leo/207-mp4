@@ -3,5 +3,7 @@ Associative Arrays
 
 Starter code for a CSC-207 project on associative arrays.
 
-_Students must replace the contents of this file with appropriate
-contents, including class, author, date, and URL._
+csc-207-02
+leo goldman
+started 9/26/24
+[github](https://github.com/gold-leo/207-mp4)
