@@ -62,7 +62,17 @@ public class AssociativeArray<K, V> {
    * @return a new copy of the array
    */
   public AssociativeArray<K, V> clone() {
-    return null; // STUB
+    AssociativeArray<K, V> copy = new AssociativeArray<K, V>();
+
+    for (KVPair<K, V> pair : pairs) {
+      try {
+        copy.set(pair.key, pair.val);
+      } catch (NullKeyException e) {
+        continue;
+      }
+    } // iterate through pairs
+
+    return copy;
   } // clone()
 
   /**
@@ -72,9 +82,11 @@ public class AssociativeArray<K, V> {
    */
   public String toString() {
     StringBuilder s = new StringBuilder();
-    for (int i = 0; i < pairs.length; i++) {
-      s.append(pairs[i].toString() + ", ");
-    } // iterate through dict
+
+    for (KVPair<K, V> pair : pairs) {
+      s.append(pair.toString() + ", ");
+    } // iterate through pairs
+
     String str = new String(s);
     return str;
   } // toString()
@@ -96,7 +108,20 @@ public class AssociativeArray<K, V> {
    *   If the client provides a null key.
    */
   public void set(K key, V value) throws NullKeyException {
-    // STUB
+    if (key == null)
+    {
+      throw new NullKeyException();
+    }
+    try {
+      int i = find(key);
+      this.pairs[i].val = value;
+    } catch (KeyNotFoundException e) {
+      if (this.size() == this.pairs.length) {
+        this.expand();
+      } // if the array is full
+      pairs[this.size()] = new KVPair<K, V>(key, value);
+      this.size++;
+    }
   } // set(K,V)
 
   /**
@@ -158,7 +183,15 @@ public class AssociativeArray<K, V> {
    *   If the key does not appear in the associative array.
    */
   int find(K key) throws KeyNotFoundException {
-    throw new KeyNotFoundException();   // STUB
+    if (this.size() == 0) {
+      throw new KeyNotFoundException("AA is empty");
+    }
+    for (int i = 0; i < this.size(); i++) {
+      if (pairs[i].key.equals(key)) {
+        return i;
+      }
+    } // iterate through pairs
+    throw new KeyNotFoundException();
   } // find(K)
 
 } // class AssociativeArray
