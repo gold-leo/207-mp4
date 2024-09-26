@@ -71,7 +71,12 @@ public class AssociativeArray<K, V> {
    * @return a string of the form "{Key0:Value0, Key1:Value1, ... KeyN:ValueN}"
    */
   public String toString() {
-    return "{}"; // STUB
+    StringBuilder s = new StringBuilder();
+    for (int i = 0; i < pairs.length; i++) {
+      s.append(pairs[i].toString() + ", ");
+    } // iterate through dict
+    String str = new String(s);
+    return str;
   } // toString()
 
   // +----------------+----------------------------------------------
