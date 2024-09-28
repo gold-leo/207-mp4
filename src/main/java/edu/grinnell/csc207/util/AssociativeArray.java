@@ -154,11 +154,11 @@ public class AssociativeArray<K, V> {
       return false;
     }
     for (int i = 0; i < this.size(); i++) {
-      if (!pairs[i].key.equals(key)) {
-        return false;
+      if (pairs[i].key.equals(key)) {
+        return true;
       }
     } // iterate through pairs
-    return true;
+    return false;
   } // hasKey(K)
 
   /**
