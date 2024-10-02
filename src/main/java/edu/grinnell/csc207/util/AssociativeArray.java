@@ -35,7 +35,7 @@ public class AssociativeArray<K, V> {
   /**
    * The array of key/value pairs.
    */
-  KVPair<K, V> pairs[];
+  KVPair<K, V>[] pairs;
 
   // +--------------+------------------------------------------------
   // | Constructors |
@@ -102,9 +102,9 @@ public class AssociativeArray<K, V> {
    * Set the value associated with key to value. Future calls to
    * get(key) will return value.
    *
-   * @param K
+   * @param key
    *   The key whose value we are seeting.
-   * @param V
+   * @param value
    *   The value of that key.
    *
    * @throws NullKeyException
@@ -133,6 +133,9 @@ public class AssociativeArray<K, V> {
    * @param key
    *   A key
    *
+   * @return
+   *   The corresponding value
+   *
    * @throws KeyNotFoundException
    *   when the key is null or does not appear in the associative array.
    */
@@ -147,7 +150,12 @@ public class AssociativeArray<K, V> {
 
   /**
    * Determine if key appears in the associative array. Should
-   * return false for the null key.
+   * return false for the null key, since it cannot appear.
+   *
+   * @param key
+   *   The key we're looking for.
+   *
+   * @return true if the key appears and false otherwise.
    */
   public boolean hasKey(K key) {
     if (this.size() == 0) {
@@ -165,6 +173,9 @@ public class AssociativeArray<K, V> {
    * Remove the key/value pair associated with a key. Future calls
    * to get(key) will throw an exception. If the key does not appear
    * in the associative array, does nothing.
+   *
+   * @param key
+   *   The key to remove.
    */
   public void remove(K key) {
     try {
@@ -179,6 +190,8 @@ public class AssociativeArray<K, V> {
 
   /**
    * Determine how many key/value pairs are in the associative array.
+   *
+   * @return The number of key/value pairs in the array.
    */
   public int size() {
     return this.size;
@@ -201,6 +214,9 @@ public class AssociativeArray<K, V> {
    *
    * @param key
    *   The key of the entry.
+   *
+   * @return
+   *   The index of the key, if found.
    *
    * @throws KeyNotFoundException
    *   If the key does not appear in the associative array.
