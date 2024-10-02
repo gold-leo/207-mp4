@@ -117,6 +117,27 @@ public class AAExperiments {
 
     // What happens when we print the AA?
     pen.println(strings2strings.toString());
+
+    // Trash
+    // AssociativeArray<String[], String> arr = new AssociativeArray<String[], String>();
+    // String[] strA1 = new String[] {"1", "2"};
+    // String[] strA2 = new String[] {"1", "2"};
+    // pen.println(strA1.equals(strA2));
+    // arr.set(strA1, "worked");
+    // pen.println(arr.get(strA2));
+
+    // More trash
+    // AssociativeArray<StringBuilder, Integer> array = new AssociativeArray<StringBuilder, Integer>();
+    // StringBuilder a = new StringBuilder();
+    // StringBuilder b = new StringBuilder("1");
+    // array.set(a, 1);
+    // array.set(b, 2);
+    // a = b;
+    // pen.println(array.get());
+    // pen.println(array.toString());
+
+
+    
     
     // And we're done.
     pen.close();
