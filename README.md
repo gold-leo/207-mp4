@@ -1,7 +1,8 @@
 Associative Arrays
 ==================
 
-Starter code for a CSC-207 project on associative arrays.
+Starter code for a CSC-207 project on associative arrays.  
+AAs are intended to be used as dictionaries, which can hold pairs of keys and values.
 
 csc-207-02  
 leo goldman  
