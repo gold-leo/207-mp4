@@ -69,7 +69,7 @@ public class AssociativeArray<K, V> {
         copy.set(pairs[i].key, pairs[i].val);
       } catch (NullKeyException e) {
         continue;
-      }
+      } // try/catch
     } // iterate through pairs
 
     return copy;
@@ -111,10 +111,9 @@ public class AssociativeArray<K, V> {
    *   If the client provides a null key.
    */
   public void set(K key, V value) throws NullKeyException {
-    if (key == null)
-    {
+    if (key == null) {
       throw new NullKeyException();
-    }
+    } // if
     try {
       int i = find(key);
       this.pairs[i].val = value;
@@ -124,7 +123,7 @@ public class AssociativeArray<K, V> {
       } // if the array is full
       pairs[this.size()] = new KVPair<K, V>(key, value);
       this.size++;
-    }
+    } // try/catch
   } // set(K,V)
 
   /**
@@ -145,7 +144,7 @@ public class AssociativeArray<K, V> {
       return pairs[i].val;
     } catch (KeyNotFoundException e) {
       throw e;
-    }
+    } // try/catch
   } // get(K)
 
   /**
@@ -160,11 +159,11 @@ public class AssociativeArray<K, V> {
   public boolean hasKey(K key) {
     if (this.size() == 0) {
       return false;
-    }
+    } // if
     for (int i = 0; i < this.size(); i++) {
       if (pairs[i].key.equals(key)) {
         return true;
-      }
+      } // if
     } // iterate through pairs
     return false;
   } // hasKey(K)
@@ -185,7 +184,7 @@ public class AssociativeArray<K, V> {
       this.size--;
     } catch (Exception e) {
       return;
-    }
+    } // try/catch
   } // remove(K)
 
   /**
@@ -224,11 +223,11 @@ public class AssociativeArray<K, V> {
   int find(K key) throws KeyNotFoundException {
     if (this.size() == 0) {
       throw new KeyNotFoundException("AA is empty");
-    }
+    } // if
     for (int i = 0; i < this.size(); i++) {
       if (pairs[i].key.equals(key)) {
         return i;
-      }
+      } // if
     } // iterate through pairs
     throw new KeyNotFoundException();
   } // find(K)
